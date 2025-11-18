@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/lavender"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="My Wallet"
+        app:titleTextColor="@color/text_color_custom" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:descendantFocusability="beforeDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <!-- Balance Card Section -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lavender"
+                android:padding="16dp">
+
+                <!-- Balance Card -->
+                <LinearLayout
+                    android:id="@+id/balance_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/lavender"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <!-- Left Side: Balance Info -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_current_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Current balance"
+                            android:textColor="#CCCCCC"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tv_inr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$25"
+                            android:textColor="@color/text_color_custom"
+                            android:textSize="32sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp"
+                            android:text="0.0347952 BTC"
+                            android:textColor="@color/text_color_custom"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:drawableEnd="@drawable/ic_copy"
+                            android:drawableTint="@color/text_color_custom"
+                            android:ellipsize="end"
+                            android:longClickable="true"
+                            android:maxLines="1"
+                            android:paddingVertical="4dp"
+                            android:paddingTop="4dp"
+                            android:text="Tap &amp; hold to copy"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="@color/text_color_custom"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- QR Code on Right -->
+                    <ImageView
+                        android:id="@+id/iv_qr"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="16dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Generate Wallet Button (hidden after wallet created) -->
+            <Button
+                android:id="@+id/btn_generate_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="@color/accent"
+                android:text="Generate Wallet"
+                android:visibility="gone" />
+
+            <!-- Send Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Send Bitcoin"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_to_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Enter recipient address"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/et_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Enter amount in BTC"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                android:padding="12dp" />
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/accent"
+                android:minHeight="50dp"
+                android:text="Send BTC" />
+
+            <!-- Sync Status -->
+            <TextView
+                android:id="@+id/tvSyncStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="16dp"
+                android:text="Syncing..."
+                android:textColor="@android:color/holo_orange_light"
+                android:visibility="gone" />
+
+            <!-- Transaction History -->
+            <TextView
+                android:id="@+id/tv_transaction_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="16dp"
+                android:text="Transaction History"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

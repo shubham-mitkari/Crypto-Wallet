@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="12dp">
+
+    <!-- Icon Container -->
+    <ImageView
+        android:id="@+id/ivType"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_transaction_icon"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Transaction Hash/Address -->
+    <TextView
+        android:id="@+id/tvAddressOrHash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvAmount"
+        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Counterparty (From/To) -->
+    <TextView
+        android:id="@+id/tvCounterparty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@id/tvAmount"
+        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintTop_toBottomOf="@id/tvAddressOrHash" />
+
+    <!-- Time -->
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/tvAmount"
+        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintTop_toBottomOf="@id/tvCounterparty" />
+
+    <!-- Amount -->
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
+        android:background="#33FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTime" />
+</androidx.constraintlayout.widget.ConstraintLayout>
