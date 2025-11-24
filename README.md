@@ -4,7 +4,7 @@ A Bitcoin wallet Android application built with BitcoinJ library. This app demon
 
 ## Screenshots
 
-<img src="screenshots/main_screen.png" width="300" alt="Main Screen" /> <img src="screenshots/transaction_list.png" width="300" alt="Transactions" />
+<img src="screenshots/main_screen.jpg" width="300" alt="Main Screen" /> <img src="screenshots/transaction_list.png" width="300" alt="Transactions" />
 
 ## Features
 
